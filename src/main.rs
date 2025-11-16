@@ -14,7 +14,7 @@ fn main() {
     let r1 = t.add_child(inbox, "Buy milk");
     let r2 = t.add_child(inbox, "Finish Rust book");
     let r3 = t.add_child(work, "Write report");
-    let _ = t.add_child(personal, "Call mom");
+    let r4 = t.add_child(personal, "Call mom");
 
     // mark some as done
     if let Some(id) = r1 {
@@ -27,6 +27,13 @@ fn main() {
     if let Some(id) = r2 {
         // nested children just to test depth
         let _ = t.add_child(id, "Take notes on ownership");
+    }
+
+    println!("{}", t);
+    println!("========================");
+
+    if let Some(id) = r4 {
+        t.toggle(id);
     }
 
     println!("{}", t);
